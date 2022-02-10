@@ -17,18 +17,5 @@ target_link_libraries(logic PRIVATE Qt${QT_VERSION_MAJOR}::Gui)
 target_link_libraries(logic PRIVATE Qt${QT_VERSION_MAJOR}::Network)
 
 
-target_link_libraries(logic PRIVATE vim95)
-
-# add_subdirectory(evolution)
-# add_subdirectory(initial)
-# add_subdirectory(io)
-# add_subdirectory(parser)
-
-# target_link_libraries(automata
-#   PRIVATE
-#     conversion
-#     evolution
-#     initial
-#     io
-#     parser
-#   )
+# target_link_libraries(logic PRIVATE vim95)
+# target_link_libraries(logic PRIVATE antifire_system)

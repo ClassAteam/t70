@@ -31,19 +31,19 @@ private:
 
     //-----Print
     void  Print_manager       ();
-    void  Print_aircondition  ();
-    void  Print_antifire      ();
-    void  Print_antiicing     ();
-    void  Print_brakes        ();
-    void  Print_cabinlighting ();
-    void  Print_emergencyalarm();
-    void  Print_hydro         ();
-    void  Print_landinggea    ();
-    void  Print_pneumatic     ();
-    void  Print_powerdc       ();
-    void  Print_presure       ();
-    void  Print_wingsmech     ();
-    void Print_navi_inst()   ;
+    // void  Print_aircondition  ();
+    // void  Print_antifire      ();
+    // void  Print_antiicing     ();
+    // void  Print_brakes        ();
+    // void  Print_cabinlighting ();
+    // void  Print_emergencyalarm();
+    // void  Print_hydro         ();
+    // void  Print_landinggea    ();
+    // void  Print_pneumatic     ();
+    // void  Print_powerdc       ();
+    // void  Print_presure       ();
+    // void  Print_wingsmech     ();
+    // void Print_navi_inst()   ;
 
 };
 #endif // MAINWINDOW_H

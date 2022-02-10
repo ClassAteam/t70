@@ -38,15 +38,15 @@
 // extern presure_int        presure       ;
 // extern wingsmech_int      wingsmech     ;
 // //----------------------------------------------
-// TimeClass* pFrameMain;
-// TimeClass* pFramePlanSys;
-// TimeClass* pFrameModel;
+TimeClass* pFrameMain;
+TimeClass* pFramePlanSys;
+TimeClass* pFrameModel;
 
 
-// bool bAvtonon=false;
-// double TICK=5.0;//ms
-// double TICK_Graf=50.0;//
-// const double ts{TICK / 1000}; //cyrcle time in seconds
+bool bAvtonon=false;
+double TICK=5.0;//ms
+double TICK_Graf=50.0;//
+const double ts{TICK / 1000}; //cyrcle time in seconds
 
 // SH_DEVICE_CONNECT DEVICE_CONNECT;
 // SH_DEVICE_CONNECT* pDev{};
@@ -54,19 +54,19 @@
 // SH_FROMRMI_PILOT   FROMRMI_OPER,   *pFromO=&FROMRMI_OPER;  // for socket_in
 // SH_ISU  ISU, *pISU=&ISU ;//
 
-// QUdpSocket *socket_out = nullptr;
-// QUdpSocket *socket_in = nullptr;
+QUdpSocket *socket_out = nullptr;
+QUdpSocket *socket_in = nullptr;
 
-// QSharedMemory SHARE_ADVANTECH;
-// QSharedMemory SHARE_RMI_PILOT;
-// QSharedMemory SHARE_ISU;
+QSharedMemory SHARE_ADVANTECH;
+QSharedMemory SHARE_RMI_PILOT;
+QSharedMemory SHARE_ISU;
 
-// extern bool exitThreadModel;
-// bool s2 = false;
-// int b_send, b_recv;
+extern bool exitThreadModel;
+bool s2 = false;
+int b_send, b_recv;
 
-// int packet_recv;
-// int packet_send;
+int packet_recv;
+int packet_send;
 
 // russian characters
 QString RUS_String(const char* t)
@@ -80,23 +80,23 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    //move(0, 0);
+    move(0, 0);
 
-    //setWindowFlags(Qt::CustomizeWindowHint | Qt::WindowTitleHint | Qt::WindowMinimizeButtonHint);
-    //setWindowFlags(Qt::CustomizeWindowHint | Qt::WindowTitleHint);
+    setWindowFlags(Qt::CustomizeWindowHint | Qt::WindowTitleHint | Qt::WindowMinimizeButtonHint);
+    setWindowFlags(Qt::CustomizeWindowHint | Qt::WindowTitleHint);
 
-    //QTextCodec::setCodecForLocale(QTextCodec::codecForName("CP1251"));
-    //QTextCodec::setCodecForLocale(QTextCodec::codecForName("Utf8"));
+    QTextCodec::setCodecForLocale(QTextCodec::codecForName("CP1251"));
+    QTextCodec::setCodecForLocale(QTextCodec::codecForName("Utf8"));
 
-   //  socket_out = new QUdpSocket(this);
-   //  socket_out->setProxy(QNetworkProxy::NoProxy);
+    socket_out = new QUdpSocket(this);
+    socket_out->setProxy(QNetworkProxy::NoProxy);
 
-   //  socket_in = new QUdpSocket(this);
-   //  socket_in->setProxy(QNetworkProxy::NoProxy);
+    socket_in = new QUdpSocket(this);
+    socket_in->setProxy(QNetworkProxy::NoProxy);
 
-   // // s2 = socket_in->bind(QHostAddress::LocalHost, 7755);
-   //  s2 = socket_in->bind(7755, QUdpSocket::ShareAddress | QUdpSocket::ReuseAddressHint);
-   //  connect(socket_in, SIGNAL(readyRead()), this, SLOT(receivingData()));
+   // s2 = socket_in->bind(QHostAddress::LocalHost, 7755);
+    s2 = socket_in->bind(7755, QUdpSocket::ShareAddress | QUdpSocket::ReuseAddressHint);
+    connect(socket_in, SIGNAL(readyRead()), this, SLOT(receivingData()));
 
    //  SHARE_ADVANTECH.setKey(SHARED_MEMORY_DEVICE_CONNECT);
    //  SHARE_ADVANTECH.attach();
@@ -107,72 +107,72 @@ MainWindow::MainWindow(QWidget *parent)
    //  SHARE_ISU.setKey(SHARED_MEMORY_ISU);
    //  SHARE_ISU.attach();
 
-     // model = new ThreadModel();//
-   // MyThread thread;
+    model = new ThreadModel();//
+    MyThread thread;
 
-   // model->start(QThread::HighestPriority);
-    // model->start(QThread::TimeCriticalPriority);
+    model->start(QThread::HighestPriority);
+    model->start(QThread::TimeCriticalPriority);
 
-    // timer = new QTimer();
-    // pFrameMain= new TimeClass("F_Graf",TICK_Graf,200,25);//for control
-    // pFramePlanSys= new TimeClass("D_PlanSys ",200);//for control
-    // pFrameModel = new TimeClass("F_Model ",TICK,200,10);//for control
-    // timer->setTimerType(Qt::PreciseTimer);
-    // connect(timer, SIGNAL(timeout()), this, SLOT(slotTimerAlarm()));
-    // timer->start((int)TICK_Graf);
+    timer = new QTimer();
+    pFrameMain= new TimeClass("F_Graf",TICK_Graf,200,25);//for control
+    pFramePlanSys= new TimeClass("D_PlanSys ",200);//for control
+    pFrameModel = new TimeClass("F_Model ",TICK,200,10);//for control
+    timer->setTimerType(Qt::PreciseTimer);
+    connect(timer, SIGNAL(timeout()), this, SLOT(slotTimerAlarm()));
+    timer->start((int)TICK_Graf);
 
 
 }
 
 MainWindow::~MainWindow()
 {
- // exitThreadModel=1;
- //delete pQtAdvan;
- // delete pFrameMain;
- // delete pFramePlanSys ;
- // delete pFrameModel ;
- // delete timer;
- // delete socket_in;
- // delete socket_out;
- // delete  model;
- // SHARE_ADVANTECH.detach();
- // SHARE_RMI_PILOT.detach();
- // SHARE_ISU.detach();
+    exitThreadModel=1;
+    delete pQtAdvan;
+    delete pFrameMain;
+    delete pFramePlanSys ;
+    delete pFrameModel ;
+    delete timer;
+    delete socket_in;
+    delete socket_out;
+    delete  model;
+    // SHARE_ADVANTECH.detach();
+    // SHARE_RMI_PILOT.detach();
+    // SHARE_ISU.detach();
 
 
- delete ui;
+    delete ui;
 }
 
 
 void MainWindow::receivingData()
 {
 
-    // while (socket_in->hasPendingDatagrams())
-    // {
-    //    QByteArray datagram;
-    //    datagram.resize(socket_in->pendingDatagramSize());
-    //    QHostAddress sender;
-    //    quint16 senderPort;
-    //    //SH_FROMRMI_PILOT  ,  *pFromP=&FROMRMI_PILOT;
-    //    socket_in->readDatagram((char *) &FROMRMI_PILOT, sizeof(SH_FROMRMI_PILOT), &sender, &senderPort);
+    while (socket_in->hasPendingDatagrams())
+    {
+       QByteArray datagram;
+       datagram.resize(socket_in->pendingDatagramSize());
+       QHostAddress sender;
+       quint16 senderPort;
+       //SH_FROMRMI_PILOT  ,  *pFromP=&FROMRMI_PILOT;
+       socket_in->readDatagram((char *) &FROMRMI_PILOT, sizeof(SH_FROMRMI_PILOT), &sender, &senderPort);
 
-    //    packet_recv ++;
+       packet_recv ++;
 
-    //    ui->text_2->setText("Packets received: " + QString::number(packet_recv)
-    //                       + ", size: " + QString::number(datagram.size()) + " Bytes");
-    //  }
+       ui->text_2->setText("Packets received: " + QString::number(packet_recv)
+                          + ", size: " + QString::number(datagram.size()) + " Bytes");
+     }
 }
 
 void MainWindow::slotTimerAlarm()
 {
-    //====control time
-    // pFrameMain->StartFrame();
+    ====control time
+    pFrameMain->StartFrame();
 
-    // send structure to WINDOWS
-    // b_send = socket_out->writeDatagram((const char *)AIN, sizeof(RMI), QHostAddress::LocalHost, 5824);
-    // if (b_send>0)
-    //  packet_send ++;
-    //====== PRINT
+    send structure to WINDOWS
+    b_send = socket_out->writeDatagram((const char *)AIN, sizeof(RMI), QHostAddress::LocalHost, 5824);
+    if (b_send>0)
+     packet_send ++;
+    ====== PRINT
     Print_manager       ()   ;
     // Print_aircondition  ()   ;
     // Print_antifire      ()   ;
@@ -194,22 +194,21 @@ void MainWindow::slotTimerAlarm()
 void  MainWindow:: Print_manager       ()
 {
 
+    ui->text_1->setText("Packets send: " + QString::number(packet_send)
+                           + ", size: " + QString::number(b_send) + " Bytes");
 
-    // ui->text_1->setText("Packets send: " + QString::number(packet_send)
-    //                        + ", size: " + QString::number(b_send) + " Bytes");
 
+    ui->text_3->setText("Сред.время рисования за период: " + QString::number(pFrameMain->_FrameN)+ " мс");
+    ui->text_4->setText("Время рисования max за период: " + QString::number(pFrameMain->_FrameMaxN)+ " мс");
+    ui->text_5->setText("Время рисования min за период: " + QString::number(pFrameMain->_FrameMinN)+ " мс");
 
-    // ui->text_3->setText("Сред.время рисования за период: " + QString::number(pFrameMain->_FrameN)+ " мс");
-    // ui->text_4->setText("Время рисования max за период: " + QString::number(pFrameMain->_FrameMaxN)+ " мс");
-    // ui->text_5->setText("Время рисования min за период: " + QString::number(pFrameMain->_FrameMinN)+ " мс");
+    ui->text_6->setText("Сред.период самол.сист.: " + QString::number(pFramePlanSys->_FrameN)+ " мс");
+    ui->text_7->setText("max период самол.сист.: " + QString::number(pFramePlanSys->_FrameMaxN)+ " мс");
+    ui->text_8->setText("min период самол.сист.: " + QString::number(pFramePlanSys->_FrameMinN)+ " мс");
 
-    // ui->text_6->setText("Сред.период самол.сист.: " + QString::number(pFramePlanSys->_FrameN)+ " мс");
-    // ui->text_7->setText("max период самол.сист.: " + QString::number(pFramePlanSys->_FrameMaxN)+ " мс");
-    // ui->text_8->setText("min период самол.сист.: " + QString::number(pFramePlanSys->_FrameMinN)+ " мс");
-
-    // ui->text_9->setText("Сред.время цикла за период: " + QString::number(pFrameModel->_FrameN)+ " мс");
-    // ui->text_10->setText("Время цикла max за период: " + QString::number(pFrameModel->_FrameMaxN)+ " мс");
-    // ui->text_11->setText("Время цикла min за период: " + QString::number(pFrameModel->_FrameMinN)+ " мс");
+    ui->text_9->setText("Сред.время цикла за период: " + QString::number(pFrameModel->_FrameN)+ " мс");
+    ui->text_10->setText("Время цикла max за период: " + QString::number(pFrameModel->_FrameMaxN)+ " мс");
+    ui->text_11->setText("Время цикла min за период: " + QString::number(pFrameModel->_FrameMinN)+ " мс");
 
 //    ui->label_48->setText("PCI1713_1kan ="     + QString::number(pQtAdvan->pAI[0]->pAf[0]));
 }
