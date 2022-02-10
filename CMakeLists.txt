@@ -18,10 +18,14 @@ set(CMAKE_AUTOUIC ON)
 
 find_package(QT NAMES Qt6 Qt5 COMPONENTS Widgets REQUIRED)
 find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Widgets REQUIRED)
+find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Core REQUIRED)
+find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Gui REQUIRED)
+find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Network REQUIRED)
 
 
 # defines targets and sources
-add_subdirectory(src)
+add_subdirectory(core)
+add_subdirectory(systems)
 
 # # contains an "external" library we will link to
 # add_subdirectory(external)
