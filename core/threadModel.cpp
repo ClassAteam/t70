@@ -105,14 +105,14 @@ void dispPlanSystem()
 //           SHARE_ADVANTECH.unlock();
 //      }
 
-      static bool firsttime{true};
-      if(firsttime)
-      {
-         // pDev = static_cast<SH_DEVICE_CONNECT*>(SHARE_ADVANTECH.data());
-          pFromP = static_cast<SH_FROMRMI_PILOT*>(SHARE_RMI_PILOT.data());
-          pISU = static_cast<SH_ISU*>(SHARE_ISU.data());
-          firsttime = false;
-      }
+      // static bool firsttime{true};
+      // if(firsttime)
+      // {
+      //    // pDev = static_cast<SH_DEVICE_CONNECT*>(SHARE_ADVANTECH.data());
+      //     pFromP = static_cast<SH_FROMRMI_PILOT*>(SHARE_RMI_PILOT.data());
+      //     pISU = static_cast<SH_ISU*>(SHARE_ISU.data());
+      //     firsttime = false;
+      // }
 
       // IN_aircondition_int       ();
       // aircondition.updateLogic();

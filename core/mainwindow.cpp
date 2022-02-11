@@ -57,9 +57,9 @@ const double ts{TICK / 1000}; //cyrcle time in seconds
 QUdpSocket *socket_out = nullptr;
 QUdpSocket *socket_in = nullptr;
 
-QSharedMemory SHARE_ADVANTECH;
-QSharedMemory SHARE_RMI_PILOT;
-QSharedMemory SHARE_ISU;
+// QSharedMemory SHARE_ADVANTECH;
+// QSharedMemory SHARE_RMI_PILOT;
+// QSharedMemory SHARE_ISU;
 
 extern bool exitThreadModel;
 bool s2 = false;
@@ -108,7 +108,7 @@ MainWindow::MainWindow(QWidget *parent)
    //  SHARE_ISU.attach();
 
     model = new ThreadModel();//
-    MyThread thread;
+    // MyThread thread;
 
     model->start(QThread::HighestPriority);
     model->start(QThread::TimeCriticalPriority);
@@ -127,7 +127,7 @@ MainWindow::MainWindow(QWidget *parent)
 MainWindow::~MainWindow()
 {
     exitThreadModel=1;
-    delete pQtAdvan;
+    // delete pQtAdvan;
     delete pFrameMain;
     delete pFramePlanSys ;
     delete pFrameModel ;
@@ -147,32 +147,32 @@ MainWindow::~MainWindow()
 void MainWindow::receivingData()
 {
 
-    while (socket_in->hasPendingDatagrams())
-    {
-       QByteArray datagram;
-       datagram.resize(socket_in->pendingDatagramSize());
-       QHostAddress sender;
-       quint16 senderPort;
-       //SH_FROMRMI_PILOT  ,  *pFromP=&FROMRMI_PILOT;
-       socket_in->readDatagram((char *) &FROMRMI_PILOT, sizeof(SH_FROMRMI_PILOT), &sender, &senderPort);
+    // while (socket_in->hasPendingDatagrams())
+    // {
+    //    QByteArray datagram;
+    //    datagram.resize(socket_in->pendingDatagramSize());
+    //    QHostAddress sender;
+    //    quint16 senderPort;
+    //    //SH_FROMRMI_PILOT  ,  *pFromP=&FROMRMI_PILOT;
+    //    socket_in->readDatagram((char *) &FROMRMI_PILOT, sizeof(SH_FROMRMI_PILOT), &sender, &senderPort);
 
-       packet_recv ++;
+    //    packet_recv ++;
 
-       ui->text_2->setText("Packets received: " + QString::number(packet_recv)
-                          + ", size: " + QString::number(datagram.size()) + " Bytes");
-     }
+    //    ui->text_2->setText("Packets received: " + QString::number(packet_recv)
+    //                       + ", size: " + QString::number(datagram.size()) + " Bytes");
+    //  }
 }
 
 void MainWindow::slotTimerAlarm()
 {
-    ====control time
+    // ====control time
     pFrameMain->StartFrame();
 
-    send structure to WINDOWS
-    b_send = socket_out->writeDatagram((const char *)AIN, sizeof(RMI), QHostAddress::LocalHost, 5824);
-    if (b_send>0)
-     packet_send ++;
-    ====== PRINT
+    // send structure to WINDOWS
+    // b_send = socket_out->writeDatagram((const char *)AIN, sizeof(RMI), QHostAddress::LocalHost, 5824);
+    // if (b_send>0)
+    //  packet_send ++;
+    // ====== PRINT
     Print_manager       ()   ;
     // Print_aircondition  ()   ;
     // Print_antifire      ()   ;

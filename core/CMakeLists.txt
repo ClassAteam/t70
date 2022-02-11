@@ -9,6 +9,8 @@ target_sources(logic
   ${CMAKE_CURRENT_LIST_DIR}/threadModel.h
   ${CMAKE_CURRENT_LIST_DIR}/T70_Win.ui
   ${CMAKE_CURRENT_LIST_DIR}/main.cpp
+  ${CMAKE_CURRENT_LIST_DIR}/utilTimeClassQt.cpp
+  ${CMAKE_CURRENT_LIST_DIR}/utilTimeClassQt.h
   )
 
 target_link_libraries(logic PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
