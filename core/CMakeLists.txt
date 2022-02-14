@@ -19,5 +19,10 @@ target_link_libraries(logic PRIVATE Qt${QT_VERSION_MAJOR}::Gui)
 target_link_libraries(logic PRIVATE Qt${QT_VERSION_MAJOR}::Network)
 
 
-# target_link_libraries(logic PRIVATE vim95)
-# target_link_libraries(logic PRIVATE antifire_system)
+if(NOT IGNORE_VIM95)
+  target_link_libraries(logic PRIVATE vim95)
+endif()
+
+target_link_libraries(logic PRIVATE exchange)
+
+  # target_link_libraries(logic PRIVATE antifire_system)

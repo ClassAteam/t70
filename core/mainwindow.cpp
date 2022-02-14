@@ -16,7 +16,7 @@
 // #include "externStruct/Struct_DeviceConnect.h"
 // #include "externStruct/Struct_FromRmiOper.h"
 // #include "externStruct/Struct_FromRmiPilot.h"
-// #include "externStruct/Struct_ISU.h"
+#include "Struct_ISU.h"
 
 #include "utilTimeClassQt.h"
 
@@ -52,7 +52,7 @@ const double ts{TICK / 1000}; //cyrcle time in seconds
 // SH_DEVICE_CONNECT* pDev{};
 // SH_FROMRMI_PILOT   FROMRMI_PILOT,  *pFromP=&FROMRMI_PILOT;  // for socket_in
 // SH_FROMRMI_PILOT   FROMRMI_OPER,   *pFromO=&FROMRMI_OPER;  // for socket_in
-// SH_ISU  ISU, *pISU=&ISU ;//
+SH_ISU  ISU, *pISU=&ISU ;//
 
 QUdpSocket *socket_out = nullptr;
 QUdpSocket *socket_in = nullptr;

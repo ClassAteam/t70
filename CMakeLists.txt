@@ -21,14 +21,16 @@ find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Widgets REQUIRED)
 find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Core REQUIRED)
 find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Gui REQUIRED)
 find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Network REQUIRED)
+find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Sql REQUIRED)
 
 
 # defines targets and sources
 add_subdirectory(core)
 add_subdirectory(systems)
+add_subdirectory(exchange)
+add_subdirectory(algorithms)
+add_subdirectory(database)
 
-# # contains an "external" library we will link to
-# add_subdirectory(external)
 
 # # enable testing and define tests
 # enable_testing()

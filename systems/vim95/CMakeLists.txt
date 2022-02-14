@@ -18,3 +18,6 @@ target_include_directories(vim95
 
 target_link_libraries(vim95 PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
 target_link_libraries(vim95 PRIVATE Qt${QT_VERSION_MAJOR}::Core)
+target_link_libraries(vim95 PRIVATE exchange)
+target_link_libraries(vim95 PRIVATE algorithms)
+target_link_libraries(vim95 PRIVATE database)

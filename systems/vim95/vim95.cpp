@@ -1,5 +1,5 @@
 #include "vim95.h"
-#include "externStruct/Struct_ISU.h"
+#include "Struct_ISU.h"
 #include <QDebug>
 
 extern SH_ISU ISU;

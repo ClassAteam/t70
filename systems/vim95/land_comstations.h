@@ -7,7 +7,7 @@
 #include <QVector3D>
 #include <vector>
 #include <memory>
-#include "externStruct/Struct_ISU.h"
+// #include "Struct_ISU.h"
 
 class Airfield;
 class vorBeacon;
