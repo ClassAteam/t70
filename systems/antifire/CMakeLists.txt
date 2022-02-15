@@ -26,3 +26,7 @@ target_include_directories(antifire_system
 
 target_link_libraries(antifire_system PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
 target_link_libraries(antifire_system PRIVATE Qt${QT_VERSION_MAJOR}::Core)
+
+target_link_libraries(antifire_system PRIVATE exchange)
+target_link_libraries(antifire_system PRIVATE algorithms)
+target_link_libraries(antifire_system PRIVATE brakes_system)

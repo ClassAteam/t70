@@ -24,5 +24,11 @@ if(NOT IGNORE_VIM95)
 endif()
 
 target_link_libraries(logic PRIVATE exchange)
-
-  # target_link_libraries(logic PRIVATE antifire_system)
+target_link_libraries(logic PRIVATE antifire_system)
+target_link_libraries(logic PRIVATE brakes_system)
+target_link_libraries(logic PRIVATE hydro_system)
+target_link_libraries(logic PRIVATE landinggear_system)
+target_link_libraries(logic PRIVATE aircondition_system)
+target_link_libraries(logic PRIVATE emergencyalarm_system)
+target_link_libraries(logic PRIVATE wingsmech_system)
+target_link_libraries(logic PRIVATE algorithms)

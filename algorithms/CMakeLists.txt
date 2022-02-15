@@ -1,9 +1,13 @@
 add_library(algorithms "")
 target_sources(algorithms
-  PRIVATE
+  PUBLIC
   ${CMAKE_CURRENT_LIST_DIR}/algorithms.h
   PRIVATE
   ${CMAKE_CURRENT_LIST_DIR}/algorithms.cpp
+  PUBLIC
+  ${CMAKE_CURRENT_LIST_DIR}/wind_functions.h
+  PRIVATE
+  ${CMAKE_CURRENT_LIST_DIR}/wind_functions.cpp
   )
 
 target_include_directories(algorithms

@@ -12,10 +12,10 @@
 #include "mainwindow.h"
 #include "ui_T70_Win.h"
 #include "threadModel.h"
-// #include "externStruct/Struct_FromRmiPilot.h"
-// #include "externStruct/Struct_DeviceConnect.h"
-// #include "externStruct/Struct_FromRmiOper.h"
-// #include "externStruct/Struct_FromRmiPilot.h"
+#include "Struct_FromRmiPilot.h"
+#include "Struct_DeviceConnect.h"
+#include "Struct_FromRmiOper.h"
+#include "Struct_FromRmiPilot.h"
 #include "Struct_ISU.h"
 
 #include "utilTimeClassQt.h"
@@ -25,18 +25,18 @@
 // #define SHARED_MEMORY_ISU "ISU_CONNECT"
 
 // //----------------------------------------------
-// extern aircondition_int   aircondition  ;
-// extern antifire_int       antifire      ;
+extern aircondition_int   aircondition  ;
+extern antifire_int       antifire      ;
 // extern antiicing_int      antiicing     ;
-// extern brakes_int         brakes        ;
+extern brakes_int         brakes        ;
 // extern cabinlighting_int  cabinlighting ;
-// extern emergencyalarm_int emergencyalarm;
-// extern hydro_int          hydro         ;
-// extern landinggear_int    landinggea    ;
+extern emergencyalarm_int emergencyalarm;
+extern hydro_int          hydro         ;
+extern landinggear_int    landinggea    ;
 // extern pneumatic_int      pneumatic     ;
 // extern powerdc_int        powerdc       ;
 // extern presure_int        presure       ;
-// extern wingsmech_int      wingsmech     ;
+extern wingsmech_int      wingsmech     ;
 // //----------------------------------------------
 TimeClass* pFrameMain;
 TimeClass* pFramePlanSys;
@@ -48,10 +48,10 @@ double TICK=5.0;//ms
 double TICK_Graf=50.0;//
 const double ts{TICK / 1000}; //cyrcle time in seconds
 
-// SH_DEVICE_CONNECT DEVICE_CONNECT;
-// SH_DEVICE_CONNECT* pDev{};
-// SH_FROMRMI_PILOT   FROMRMI_PILOT,  *pFromP=&FROMRMI_PILOT;  // for socket_in
-// SH_FROMRMI_PILOT   FROMRMI_OPER,   *pFromO=&FROMRMI_OPER;  // for socket_in
+SH_DEVICE_CONNECT DEVICE_CONNECT;
+SH_DEVICE_CONNECT* pDev{};
+SH_FROMRMI_PILOT   FROMRMI_PILOT,  *pFromP=&FROMRMI_PILOT;  // for socket_in
+SH_FROMRMI_PILOT   FROMRMI_OPER,   *pFromO=&FROMRMI_OPER;  // for socket_in
 SH_ISU  ISU, *pISU=&ISU ;//
 
 QUdpSocket *socket_out = nullptr;
@@ -175,7 +175,7 @@ void MainWindow::slotTimerAlarm()
     // ====== PRINT
     Print_manager       ()   ;
     // Print_aircondition  ()   ;
-    // Print_antifire      ()   ;
+    Print_antifire      ()   ;
     // Print_antiicing     ()   ;
     // Print_brakes        ()   ;
     // Print_cabinlighting ()   ;
@@ -254,20 +254,20 @@ void  MainWindow:: Print_manager       ()
 //     ui->skv_a004->setText("Сигнал ТЕМПЕРАТУРА В ЗАДНЕМ ТЕХНИЧЕСКОМ ОТСЕКЕ = " + QString::number(aircondition.skv_a004));
 
 // }
-// void  MainWindow:: Print_antifire      ()
-// {
-//     ui->peregrevDv1->setText("Признак входного сигнала ПЕРЕГРЕВ ДВИГАТЕЛЯ 1 = " + QString::number(uks_inst.UKS3X314));
-//     ui->peregrevDv2->setText("Признак входного сигнала ПЕРЕГРЕВ ДВИГАТЕЛЯ 2 = " + QString::number(uks_inst.UKS3X315));
-//     ui->peregrevDv3->setText("Признак входного сигнала ПЕРЕГРЕВ ДВИГАТЕЛЯ 3 = " + QString::number(uks_inst.UKS3X316));
-//     ui->peregrevDv4->setText("Признак входного сигнала ПЕРЕГРЕВ ДВИГАТЕЛЯ 4 = " + QString::number(uks_inst.UKS3X317));
-//     ui->ochered_1_razr->setText("Признак входного сигнала ОЧЕРЕДЬ 1 РАЗРЯДИЛАСЬ = " + QString::number(uks_inst.UKS3X318));
-//     ui->pozharDv1->setText("Признак входного сигнала ПОЖАР ДВИГАТЕЛЯ 1 = " + QString::number(uks_inst.UKS4X33));
-//     ui->pozharDv2->setText("Признак входного сигнала ПОЖАР ДВИГАТЕЛЯ 2 = " + QString::number(uks_inst.UKS4X34));
-//     ui->pozharDv3->setText("Признак входного сигнала ПОЖАР ДВИГАТЕЛЯ 3 = " + QString::number(uks_inst.UKS4X35));
-//     ui->pozharDv4->setText("Признак входного сигнала ПОЖАР ДВИГАТЕЛЯ 4 = " + QString::number(uks_inst.UKS4X36));
-//     ui->ocheredVsu->setText("Признак входного сигнала ОЧЕРЕДЬ ВСУ = " + QString::number(uks_inst.UKS4X37));
+void  MainWindow:: Print_antifire      ()
+{
+    ui->peregrevDv1->setText("Признак входного сигнала ПЕРЕГРЕВ ДВИГАТЕЛЯ 1 = " + QString::number(uks_inst.UKS3X314));
+    ui->peregrevDv2->setText("Признак входного сигнала ПЕРЕГРЕВ ДВИГАТЕЛЯ 2 = " + QString::number(uks_inst.UKS3X315));
+    ui->peregrevDv3->setText("Признак входного сигнала ПЕРЕГРЕВ ДВИГАТЕЛЯ 3 = " + QString::number(uks_inst.UKS3X316));
+    ui->peregrevDv4->setText("Признак входного сигнала ПЕРЕГРЕВ ДВИГАТЕЛЯ 4 = " + QString::number(uks_inst.UKS3X317));
+    ui->ochered_1_razr->setText("Признак входного сигнала ОЧЕРЕДЬ 1 РАЗРЯДИЛАСЬ = " + QString::number(uks_inst.UKS3X318));
+    ui->pozharDv1->setText("Признак входного сигнала ПОЖАР ДВИГАТЕЛЯ 1 = " + QString::number(uks_inst.UKS4X33));
+    ui->pozharDv2->setText("Признак входного сигнала ПОЖАР ДВИГАТЕЛЯ 2 = " + QString::number(uks_inst.UKS4X34));
+    ui->pozharDv3->setText("Признак входного сигнала ПОЖАР ДВИГАТЕЛЯ 3 = " + QString::number(uks_inst.UKS4X35));
+    ui->pozharDv4->setText("Признак входного сигнала ПОЖАР ДВИГАТЕЛЯ 4 = " + QString::number(uks_inst.UKS4X36));
+    ui->ocheredVsu->setText("Признак входного сигнала ОЧЕРЕДЬ ВСУ = " + QString::number(uks_inst.UKS4X37));
+}
 
-// }
 // void  MainWindow:: Print_antiicing     ()
 // {
 //     ui->uks1x316->setText("ОБЛЕДИНЕНИЕ ЛЕВЫЙ ДАТЧИК = " + QString::number(uks_inst.UKS1X316));

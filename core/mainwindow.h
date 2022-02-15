@@ -32,7 +32,7 @@ private:
     //-----Print
     void  Print_manager       ();
     // void  Print_aircondition  ();
-    // void  Print_antifire      ();
+    void  Print_antifire      ();
     // void  Print_antiicing     ();
     // void  Print_brakes        ();
     // void  Print_cabinlighting ();

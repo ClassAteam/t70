@@ -10,21 +10,21 @@
 //namespace Ui { class MainWindow; }
 //QT_END_NAMESPACE
 //========================================model
-// #include "sourcePlaneSystem\antifire_int.h       "     //  противопожарный
+#include "antifire_int.h"     //  противопожарный
 // #include "sourcePlaneSystem\antiicing_int.h      "     //  антиобледенительный
-// #include "sourcePlaneSystem\brakes_int.h         "     //  тормоза
+#include "brakes_int.h"     //  тормоза
 // #include "sourcePlaneSystem\bailout_int.h         "    //  катапультирование
 // #include "sourcePlaneSystem\cabinlighting_int.h  "     //  кабинное освещение
-// #include "sourcePlaneSystem\emergencyalarm_int.h "     //  аварийная сигнализация
+#include "emergencyalarm_int.h"     //  аварийная сигнализация
 // #include "sourcePlaneSystem\exchange.h           "     //  обмен
-// #include "sourcePlaneSystem\hydro_int.h          "     //  гидро
-// #include "sourcePlaneSystem\landinggear_int.h    "     //  шасси
+#include "hydro_int.h"     //  гидро
+#include "landinggear_int.h"     //  шасси
 // #include "sourcePlaneSystem\pneumatic_int.h      "     //  пневматика
 // #include "sourcePlaneSystem\powerdc_int.h        "     //  электроэнергия
 // #include "sourcePlaneSystem\presure_int.h        "     //  давление
-// #include "sourcePlaneSystem\uks.h                "     //
-// #include "sourcePlaneSystem\wingsmech_int.h      "     //  мехаанизация крыла
-// #include "sourcePlaneSystem\aircondition_int.h   "     //  кондиционир воздуха
+#include "uks.h"     //
+#include "wingsmech_int.h"     //  мехаанизация крыла
+#include "aircondition_int.h"     //  кондиционир воздуха
 // #include "sourcePlaneSystem\vim95.h   "     //  кондиционир воздуха
 //void dispPlanSystem();
 //void antifire_1();

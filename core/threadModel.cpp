@@ -24,25 +24,25 @@
 #include <QSharedMemory>
 #include "threadModel.h"
 
-// #include "externStruct/Struct_FromRmiPilot.h"
-// #include "externStruct/Struct_DeviceConnect.h"
-// #include "externStruct/Struct_FromRmiOper.h"
-// #include "externStruct/Struct_FromRmiPilot.h"
+#include "Struct_FromRmiPilot.h"
+#include "Struct_DeviceConnect.h"
+#include "Struct_FromRmiOper.h"
+#include "Struct_FromRmiPilot.h"
 #include "utilTimeClassQt.h"
 
-// #include "externStruct/Struct_ISU.h"
+#include "Struct_ISU.h"
 
 #include "mainwindow.h"
 //class MainWindow w;
-// extern SH_DEVICE_CONNECT  DEVICE_CONNECT;//, *pDevShar;
-// extern  QSharedMemory SHARE_ADVANTECH;
-// extern  SH_DEVICE_CONNECT *pDev;
+extern SH_DEVICE_CONNECT  DEVICE_CONNECT;//, *pDevShar;
+extern  QSharedMemory SHARE_ADVANTECH;
+extern  SH_DEVICE_CONNECT *pDev;
 
-// extern  QSharedMemory SHARE_RMI_PILOT;
-// extern  SH_FROMRMI_PILOT *pFromP;
+extern  QSharedMemory SHARE_RMI_PILOT;
+extern  SH_FROMRMI_PILOT *pFromP;
 
-// extern  QSharedMemory SHARE_ISU;
-// extern  SH_ISU *pISU;
+extern  QSharedMemory SHARE_ISU;
+extern  SH_ISU *pISU;
 
 bool exitThreadModel=0;
 extern TimeClass* pFramePlanSys;
@@ -50,19 +50,19 @@ extern TimeClass* pFrameModel;
 extern double TICK;
 
 ////////////////////////////////////////////////#include "sourcePlaneSystem/brakes_1.h"
-// aircondition_int   aircondition  ;
-// antifire_int       antifire      ;
+aircondition_int   aircondition  ;
+antifire_int       antifire      ;
 // antiicing_int      antiicing     ;
 // bailout_int        bailout       ;
-// brakes_int         brakes        ;
+brakes_int         brakes        ;
 // cabinlighting_int  cabinlighting ;
-// hydro_int          hydro         ;
-// landinggear_int    landinggea    ;
+hydro_int          hydro         ;
+landinggear_int    landinggea    ;
 // pneumatic_int      pneumatic     ;
 // powerdc_int        powerdc       ;
 // presure_int        presure       ;
-// wingsmech_int      wingsmech     ;
-// emergencyalarm_int emergencyalarm;
+wingsmech_int      wingsmech     ;
+emergencyalarm_int emergencyalarm;
 
 // void IN_aircondition_int   ();
 // void IN_antifire_int       ();

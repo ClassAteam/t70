@@ -10,6 +10,22 @@ target_sources(exchange
   ${CMAKE_CURRENT_LIST_DIR}/Struct_ISU.h
   PRIVATE
   ${CMAKE_CURRENT_LIST_DIR}/Struct_ToRmiNavig.h
+  PRIVATE
+  ${CMAKE_CURRENT_LIST_DIR}/bss.h
+  PRIVATE
+  ${CMAKE_CURRENT_LIST_DIR}/bss.cpp
+  PRIVATE
+  ${CMAKE_CURRENT_LIST_DIR}/exchange.h
+  PRIVATE
+  ${CMAKE_CURRENT_LIST_DIR}/exchange.cpp
+  PRIVATE
+  ${CMAKE_CURRENT_LIST_DIR}/uks.h
+  PRIVATE
+  ${CMAKE_CURRENT_LIST_DIR}/uks.cpp
+  PRIVATE
+  ${CMAKE_CURRENT_LIST_DIR}/switches.h
+  PRIVATE
+  ${CMAKE_CURRENT_LIST_DIR}/switches.cpp
   )
 
 target_include_directories(exchange
