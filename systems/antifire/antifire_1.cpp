@@ -1,4 +1,4 @@
-#include "antifire_1.h"
+#include "antifire_int.h"
 
 void antifire_int::antifire_1()
 {

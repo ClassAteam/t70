@@ -1,5 +1,5 @@
-#include "antifire_2.h"
 #include "brakes_int.h"
+#include "antifire_int.h"
 
 extern brakes_int brakes;
 void antifire_int::antifire_2()

@@ -2,30 +2,30 @@
 #define THREADMODEL_H
 
 #include <QThread>
-#include <QMainWindow>
-#include <QTimer>
-#include <QTime>
+// #include <QMainWindow>
+// #include <QTimer>
+// #include <QTime>
 
 //QT_BEGIN_NAMESPACE
 //namespace Ui { class MainWindow; }
 //QT_END_NAMESPACE
 //========================================model
 #include "antifire_int.h"     //  противопожарный
-// #include "sourcePlaneSystem\antiicing_int.h      "     //  антиобледенительный
+#include "antiicing_int.h"     //  антиобледенительный
 #include "brakes_int.h"     //  тормоза
-// #include "sourcePlaneSystem\bailout_int.h         "    //  катапультирование
-// #include "sourcePlaneSystem\cabinlighting_int.h  "     //  кабинное освещение
+#include "bailout_int.h"    //  катапультирование
+#include "cabinlighting_int.h"     //  кабинное освещение
 #include "emergencyalarm_int.h"     //  аварийная сигнализация
-// #include "sourcePlaneSystem\exchange.h           "     //  обмен
+#include "exchange.h"     //  обмен
 #include "hydro_int.h"     //  гидро
 #include "landinggear_int.h"     //  шасси
-// #include "sourcePlaneSystem\pneumatic_int.h      "     //  пневматика
-// #include "sourcePlaneSystem\powerdc_int.h        "     //  электроэнергия
-// #include "sourcePlaneSystem\presure_int.h        "     //  давление
+#include "pneumatic_int.h"     //  пневматика
+#include "powerdc_int.h"     //  электроэнергия
+#include "presure_int.h"     //  давление
 #include "uks.h"     //
 #include "wingsmech_int.h"     //  мехаанизация крыла
 #include "aircondition_int.h"     //  кондиционир воздуха
-// #include "sourcePlaneSystem\vim95.h   "     //  кондиционир воздуха
+#include "vim95.h"     //  кондиционир воздуха
 //void dispPlanSystem();
 //void antifire_1();
 //void antifire_2();
